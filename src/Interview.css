@@ -1,0 +1,97 @@
+.addInterview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    /*height: 100vh;*/
+}
+
+
+
+.h2-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 1rem;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin: 1rem;
+    width: 60vw;
+    background: #eee;
+
+
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 15rem;
+}
+
+textarea {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 20em;
+
+}
+
+
+.label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem;
+    width: 100%;
+}
+
+label {
+    width: 10em;
+}
+
+.button {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #5a83ea;
+    color: white;
+    width: 10em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform linear 150ms;
+}
+
+.button:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 3px 10px 3px #a2a2a2;
+}
+.line{
+
+    align-self: center;
+    margin: 1rem;
+    width: 90%;
+
+  border: #ddd 1px solid;
+}
+
+.ongoingInterview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
