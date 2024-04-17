@@ -19,7 +19,6 @@ function App() {
     const HOST_URL = 'http://' + Domain + ':' + PORT;
 
     useEffect( () => {
-
         const verifyRoomID = async () => {
             setIsLoading(true);
             try {
@@ -32,7 +31,6 @@ function App() {
             }
             finally {
                 setIsLoading(false);
-
             }
         }
         verifyRoomID();
@@ -46,15 +44,11 @@ function App() {
     return (
         <div className="App">
             <div className="leftPanel">
-
-
                 <Board roomId={roomId!}/>
-
             </div>
             <div className="rightPanel">
                 <div className='chatContainer'>
                     {/*// chat*/}
-
                 </div>
                 <div className='button'>
                     Send

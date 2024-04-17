@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Domain, fetchData, getTimeStamp} from "./utility";
 import './css/Interview.css';
+import {useNavigate} from "react-router-dom";
 
 type InterviewData = {
-    id?: number;
+    id: number;
     candidateName: string;
     interviewerName: string;
     date: string;
@@ -19,9 +20,10 @@ export default function Interview() {
 
     const [interviews, setInterviews] = useState<InterviewData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState<InterviewData>({
+        id: 0,
         candidateName: '',
         interviewerName: interviewer,
         date: timestamp,
@@ -39,6 +41,11 @@ export default function Interview() {
             [name]: value
         }));
     };
+
+    const goToInterview = (interview_id: number) => {
+        console.log('go to interview', interview_id);
+        navigate(`/room/${interview_id}`, { replace: true });
+    }
 
     const getInterviews = async () => {
         try {
@@ -59,7 +66,7 @@ export default function Interview() {
             await fetchData(HOST_URL + '/interviews', 'POST', {'Content-Type': 'application/json'}, formData);
             alert('Interview Added Successfully');
 
-            setFormData({candidateName: '', interviewerName: interviewer, date: timestamp, comments: ''});
+            setFormData({id:0,candidateName: '', interviewerName: interviewer, date: timestamp, comments: ''});
             await getInterviews();
         } catch (error) {
             console.error('Error adding interview:', error);
@@ -123,8 +130,8 @@ export default function Interview() {
                     ) : (
                         <ul className='listitemsContainer'>
                             {interviews.map(interview => (
-                                <li className='listitems' key={interview.id}>
-                                    Candidate: {interview.candidateName}, Interviewer: {interview.interviewerName},
+                                <li className='listitems' key={interview.id} onClick={()=>{goToInterview(interview.id)}}>
+                                    Id: {interview.id}, Candidate: {interview.candidateName}, Interviewer: {interview.interviewerName},
                                     Date: {interview.date}, Comments: {interview.comments}
                                 </li>
                             ))}

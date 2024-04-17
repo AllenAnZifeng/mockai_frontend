@@ -21,8 +21,8 @@ export default function Board ({roomId}:BoardProps) {
 		roomId: roomId,
 		hostUrl: WS_URL,
 	})
-	// let tldrawElem = <Tldraw  autoFocus store={store} />
-	let tldrawElem = <Tldraw  autoFocus persistenceKey={roomId} />
+	let tldrawElem = <Tldraw  autoFocus store={store} />
+	// let tldrawElem = <Tldraw  autoFocus persistenceKey={roomId} />
 	useEffect(() => {
 
 	}, [roomId]);
