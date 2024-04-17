@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import App from './App';
+import Join from './Join';
 import Interview from './Interview';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -13,8 +14,12 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/room/:roomId",
     element: <App />,
+  },
+    {
+    path: "/join",
+    element: <Join />,
   },
     {
     path: "/admin",

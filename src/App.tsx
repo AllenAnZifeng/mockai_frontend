@@ -1,34 +1,29 @@
 import React, {useEffect, useRef, useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 
 import 'tldraw/tldraw.css'
 import Client from "./Client";
 import Board from "./Board";
-
+import {useParams, useNavigate} from 'react-router-dom';
 
 
 function App() {
 
-    const [roomID, setRoomID] = useState('abc');
-    const handleChange = (event: any) => {
-        setRoomID(event.target.value);
-    };
+    const {roomId} = useParams<{ roomId?: string }>();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!roomId) {
+            navigate('/join');
+        }
+    }, [roomId, navigate]);
 
     return (
         <div className="App">
             <div className="leftPanel">
 
 
-                <Board roomId={roomID}/>
+                <Board roomId={roomId!}/>
 
-                <input type="text" id="barcode" placeholder="RoomID" value={roomID}
-                       onChange={handleChange}/>
-
-
-                <div className='button'>
-                    Submit
-                </div>
             </div>
             <div className="rightPanel">
                 <div className='chatContainer'>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Domain, getTimeStamp} from "./utility";
-import './Interview.css';
+import {Domain, fetchData, getTimeStamp} from "./utility";
+import './css/Interview.css';
 
 type InterviewData = {
     id?: number;
@@ -42,24 +42,10 @@ export default function Interview() {
 
     const getInterviews = async () => {
         try {
-            const response = await fetch(HOST_URL + '/interviews');
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
 
-            if (data.status === false) {
-                throw new Error(data.data);
-            }
-            console.log(data)
+            const data: InterviewData[] = await fetchData(HOST_URL + '/interviews');
 
-            if (Array.isArray(data.data)) {
-            setInterviews(data.data);
-        }
-            else{
-                throw new Error('not array');
-            }
-            setInterviews(data.data);
+            setInterviews(data);
             setIsLoading(false);
         } catch (error) {
             console.error('Error fetching interviews:', error);
@@ -70,31 +56,14 @@ export default function Interview() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch(HOST_URL + '/interviews', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-
-            }
-            const result = await response.json();
-            if (result.status === false) {
-                throw new Error(result.data);
-            }
-
+            await fetchData(HOST_URL + '/interviews', 'POST', {'Content-Type': 'application/json'}, formData);
             alert('Interview Added Successfully');
-            console.log(result); // handle response data or redirect
-            // Optionally reset form or navigate to another page
+
             setFormData({candidateName: '', interviewerName: interviewer, date: timestamp, comments: ''});
             await getInterviews();
         } catch (error) {
             console.error('Error adding interview:', error);
-            alert('Failed to add interview');
+            alert(error);
         }
     };
 
@@ -152,9 +121,9 @@ export default function Interview() {
                     {isLoading ? (
                         <p>Loading...</p>
                     ) : (
-                        <ul>
+                        <ul className='listitemsContainer'>
                             {interviews.map(interview => (
-                                <li key={interview.id}>
+                                <li className='listitems' key={interview.id}>
                                     Candidate: {interview.candidateName}, Interviewer: {interview.interviewerName},
                                     Date: {interview.date}, Comments: {interview.comments}
                                 </li>

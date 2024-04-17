@@ -95,3 +95,24 @@ label {
     justify-content: center;
 
 }
+.listitemsContainer{
+    margin: 1rem;
+}
+.listitems {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #5a83ea;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: 3px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform linear 150ms;
+}
+
+.listitems:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 3px 10px 3px #a2a2a2;
+}
