@@ -1,25 +1,24 @@
 import './css/Join.css';
 import React, {useState} from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,redirect } from 'react-router-dom';
 import {Domain, fetchData} from "./utility";
 
 const PORT = '5000';
 const HOST_URL = 'http://' + Domain + ':' + PORT;
 export default function Join() {
-    const [roomID, setRoomID] = useState('');
+    const [roomId, setRoomId] = useState('');
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRoomID(event.target.value);
+        setRoomId(event.target.value);
     };
 
     const verifyRoomID = async () => {
         setIsLoading(true);
         try {
-            await fetchData(HOST_URL + '/verify/' + roomID);
-            navigate(`/room/${roomID}`);
-
+            await fetchData(HOST_URL + '/verify/' + roomId);
+            navigate(`/room/${roomId}`, { replace: true });
             setIsLoading(false);
         } catch (error) {
             alert(error);
@@ -29,7 +28,7 @@ export default function Join() {
 
     return <div className='joinContainer'>
         <h2 className='title'>Please enter the Room ID you have received in the email </h2>
-        <input type="text" id="roomIdInput" placeholder="Enter RoomID" value={roomID}
+        <input type="text" id="roomIdInput" placeholder="Enter RoomID" value={roomId}
                onChange={handleChange}/>
 
 
