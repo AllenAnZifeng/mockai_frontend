@@ -9,6 +9,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Internal from "./Internal";
 
 
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/room/:roomId",
     element: <App />,
+  },
+    {
+    path: "/internal/:roomId",
+    element: <Internal />,
   },
     {
     path: "/join",

@@ -43,7 +43,7 @@ export default function Board({roomId}: BoardProps) {
 
 
     let tldrawElem = <Tldraw
-        autoFocus store={store} onMount={handleMount}
+        autoFocus store={store}
     />
 
 
