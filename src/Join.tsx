@@ -1,6 +1,6 @@
 import './css/Join.css';
 import React, {useState} from "react";
-import {useNavigate,redirect } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import {Domain, fetchData} from "./utility";
 
 const PORT = '5000';
