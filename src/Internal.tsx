@@ -1,13 +1,11 @@
 import {useParams} from "react-router-dom";
-import Board from "./Board";
 import React, {useState} from "react";
 import './css/Internal.css';
 import {Editor, exportToBlob, Tldraw} from "tldraw";
 import {useYjsStore} from "./useYjsStore";
-import {Domain} from "./utility";
+import {WS_URL} from "./utility";
 
-const PORT = '8888';
-const WS_URL = 'ws://' + Domain + ':' + PORT;
+
 
 declare global {
     interface Window {

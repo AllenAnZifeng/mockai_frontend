@@ -1,11 +1,10 @@
 import 'tldraw/tldraw.css'
 import {useYjsStore} from './useYjsStore'
 import {useEffect} from "react";
-import {Domain} from "./utility";
+import {WS_URL} from "./utility";
 import {Editor, Tldraw, exportAs} from "tldraw";
 
-const PORT = '8888';
-const WS_URL = 'ws://' + Domain + ':' + PORT;
+
 
 interface BoardProps {
     roomId: string;

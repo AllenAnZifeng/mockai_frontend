@@ -1,10 +1,9 @@
 import './css/Join.css';
 import React, {useState} from "react";
 import {useNavigate } from 'react-router-dom';
-import {Domain, fetchData} from "./utility";
+import {HOST_URL, fetchData} from "./utility";
 
-const PORT = '5000';
-const HOST_URL = 'http://' + Domain + ':' + PORT;
+
 export default function Join() {
     const [roomId, setRoomId] = useState('');
     const navigate = useNavigate();

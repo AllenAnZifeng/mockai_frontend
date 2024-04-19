@@ -4,7 +4,7 @@ import './css/App.css';
 import 'tldraw/tldraw.css'
 import Board from "./Board";
 import {useParams, useNavigate} from 'react-router-dom';
-import {Domain, fetchData} from "./utility";
+import {HOST_URL, fetchData} from "./utility";
 
 interface Chat {
     interview_id: number,
@@ -25,8 +25,7 @@ function App() {
     const [chats, setChats] = useState<Chat[]>([]);
     const [isWaitingAI, setIsWaitingAI] = useState<boolean>(false);
 
-    const PORT = '5000';
-    const HOST_URL = 'http://' + Domain + ':' + PORT;
+
 
     const parseCookies = (): Record<string, string> => {
         return document.cookie.split(';').reduce((cookies, cookie) => {

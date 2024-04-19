@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Domain, fetchData, getTimeStamp} from "./utility";
+import {HOST_URL, fetchData, getTimeStamp} from "./utility";
 import './css/Interview.css';
 import {useNavigate} from "react-router-dom";
 
@@ -10,8 +10,7 @@ type InterviewData = {
     date: string;
     comments: string;
 };
-const PORT = '5000';
-const HOST_URL = 'http://' + Domain + ':' + PORT;
+
 
 export default function Interview() {
 
