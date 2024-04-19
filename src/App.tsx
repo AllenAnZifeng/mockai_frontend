@@ -87,7 +87,7 @@ function App() {
 
             } catch (error) {
                 console.error(error);
-                navigate('/join', {replace: true});
+                navigate('/', {replace: true});
             } finally {
                 setIsLoading(false);
             }
