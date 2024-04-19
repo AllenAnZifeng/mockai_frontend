@@ -1,5 +1,5 @@
 export const HOST_URL = 'https://flask.mockai.zifengallen.top:5000';
-export const WS_URL = 'ws://flask.mockai.zifengallen.top:8888';
+export const WS_URL = 'wss://flask.mockai.zifengallen.top:8888';
 export const getTimeStamp = () => {
     const now = new Date();
     const year = now.getFullYear();
