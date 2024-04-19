@@ -1,4 +1,4 @@
-export const HOST_URL = 'alert-cheetah-true.ngrok-free.app';
+export const HOST_URL = 'https://alert-cheetah-true.ngrok-free.app';
 export const WS_URL = 'wss://flask.mockai.zifengallen.top:8888';
 export const getTimeStamp = () => {
     const now = new Date();
