@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <Internal />,
   },
     {
-    path: "/join",
+    path: "/",
     element: <Join />,
   },
     {
