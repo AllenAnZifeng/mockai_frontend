@@ -1,4 +1,4 @@
-export const Domain = 'localhost';
+export const Domain = 'flask.mockai.zifengallen.top';
 
 export const getTimeStamp = () => {
     const now = new Date();
