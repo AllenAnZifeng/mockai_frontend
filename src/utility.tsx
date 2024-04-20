@@ -1,4 +1,5 @@
-export const HOST_URL = 'https://alert-cheetah-true.ngrok-free.app';
+export const HOST_URL = 'https://flask.mockai.zifengallen.top:5000/';
+// export const HOST_URL = 'https://alert-cheetah-true.ngrok-free.app';
 export const WS_URL = 'wss://flask.mockai.zifengallen.top:8888';
 export const getTimeStamp = () => {
     const now = new Date();
@@ -30,10 +31,13 @@ export async function fetchData<T>(url: string,
         }
         const response = await fetch(url,options);
 
+        console.log(response)
         if (!response.ok) {
             throw new Error('Network response was not OK');
         }
+
         const data: Response = await response.json();
+
         if (!data.status) {
             throw new Error(data.data);
         }
