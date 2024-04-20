@@ -31,7 +31,7 @@ export async function fetchData<T>(url: string,
         }
         const response = await fetch(url,options);
 
-        console.log(response)
+        // console.log(response)
         if (!response.ok) {
             throw new Error('Network response was not OK');
         }

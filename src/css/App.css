@@ -42,12 +42,14 @@
 .rightPanel {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items:flex-start;
     width: 30%;
     flex-grow: 1;
     background-color: #aaa;
     padding: 20px;
     margin: 20px;
-    overflow-y: hidden;
+
 }
 
 .tldrawContainer {
@@ -55,7 +57,7 @@
     height: 90%;
 }
 .chatContainer{
-    flex:1 1
+    max-height: 80%;
 }
 .chatHeader {
     margin: 0 0 0 5px;
@@ -66,7 +68,7 @@
 .chatMessages {
     overflow-y: auto;
     margin-top: 15px;
-    max-height: 80vh;
+    max-height: 90%;
 }
 
 .chatMessage {
@@ -83,7 +85,7 @@
     font-size: 1.2em;
     font-weight: bold;
     width: 85%;
-    min-height: 40px;
+    /*min-height: 40px;*/
 
 }
 
