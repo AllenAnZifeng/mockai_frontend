@@ -42,7 +42,7 @@
 .rightPanel {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items:flex-start;
     width: 30%;
     flex-grow: 1;
@@ -57,7 +57,8 @@
     height: 90%;
 }
 .chatContainer{
-    max-height: 80%;
+    height: calc(100% - 120px);
+    min-height: 10px;
 }
 .chatHeader {
     margin: 0 0 0 5px;
@@ -68,7 +69,7 @@
 .chatMessages {
     overflow-y: auto;
     margin-top: 15px;
-    max-height: 90%;
+    height: calc(100% - 80px);
 }
 
 .chatMessage {
